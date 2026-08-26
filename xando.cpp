@@ -8,6 +8,9 @@ using namespace std;
 char tablica[3][3]={
 {' ',' ',' '},{' ',' ',' '},{' ',' ',' '}
 };
+char original[3][3]={
+{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}
+};
 void printboard(char (&t)[3][3])
 {
     cout<<"-------"<<endl;
@@ -58,7 +61,7 @@ bool ifwin(char t[3][3],char c)
 }
 bool can_move(int x, int y,char tablica[3][3])
  {
-    if(x>2 || y>2 || x<0 || y<0 || tablica[x][y]=='O' || tablica[x][y]=='X')
+    if(x>2 || y>2 || x<0 || y<0 )
         return false;
 
 
@@ -95,6 +98,7 @@ int main()
     // select
 
     char m;
+    
 
     while(n!=9)
     {
@@ -103,6 +107,7 @@ int main()
         y = place.second;
         while (true)
     {
+        
         tablica[x][y]='#';
         system("cls");
         printboard(tablica);
@@ -110,9 +115,19 @@ int main()
         cin>>m;
         if(m=='n')
         {
-            break;
+            if(original[x][y]==' ')
+              break;
+            else
+            {
+                cout<<"you canot go there";
+                 tablica[x][y]=original[x][y];
+                x = place.first;
+                y = place.second;
+            this_thread::sleep_for(chrono::seconds(2));
+            }
+              
         }
-        tablica[x][y]=' ';
+        tablica[x][y]=original[x][y];
         if(m=='w')
 
         {
@@ -165,6 +180,7 @@ int main()
         //cout<<"napisz wiersz (1-3) i kolumnę (1-3) oddzielone spacją:";
         //cin>>x>>y;
          put(k,x,y,tablica);
+         put(k,x,y,original);
         system("cls");
         printboard(tablica);
          if(n>=4)
