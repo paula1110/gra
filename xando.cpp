@@ -85,7 +85,7 @@ int main()
     char k;
     string s;
     int x=0,y=0,n=0;
-    printboard(tablica);
+    
     cout<<"kto chce zacząć X lub O";
     cin>>s;
     if(s.length()>1)
@@ -98,6 +98,11 @@ int main()
     // select
 
     char m;
+    cout<<"to move use 'w' , 's' , 'a' , 'd' "<<endl;
+    cout<<"to select the square click 'n'";
+    this_thread::sleep_for(chrono::seconds(5));
+    system("cls");
+    printboard(tablica);
     
 
     while(n!=9)
@@ -188,7 +193,7 @@ int main()
         {
             cout<<k<<" IS THE WINNER";
             this_thread::sleep_for(chrono::seconds(2));
-            break;
+            return 0;
         }
 
 
@@ -211,6 +216,9 @@ int main()
                 }
             } while(!can_move(x,y,tablica));
         }
+
+        cout<<"it is a draw";
+        this_thread::sleep_for(chrono::seconds(2));
 
     }
 
