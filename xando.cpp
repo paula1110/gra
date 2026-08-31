@@ -217,12 +217,12 @@ int main()
             } while(!can_move(x,y,tablica));
         }
 
-        cout<<"it is a draw";
-        this_thread::sleep_for(chrono::seconds(2));
+        
 
     }
 
-
+cout<<"it is a draw";
+        this_thread::sleep_for(chrono::seconds(2));
 
 
 
