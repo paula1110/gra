@@ -13,6 +13,7 @@ struct food{
     int x;
     int y;
 };
+
 char board[10][20]=
 {{'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'},
  {'#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#'},
@@ -39,6 +40,19 @@ bool check_lose(char board[10][20],int x,int y,vector<food>snake)
 
      return true;
 }
+bool is_valid_food_position(char board[10][20], vector<food> snake, int x, int y)
+{
+    if (board[x][y] == '#') return false;
+    if (board[x][y] != ' ') return false;
+
+    for (int i = 0; i < snake.size(); i++)
+    {
+        if (snake[i].x == x && snake[i].y == y)
+            return false;
+    }
+
+    return true;
+}
 
 void print_board(char board[10][20])
 {
@@ -52,30 +66,31 @@ void print_board(char board[10][20])
     }
 }
 
-void new_food(char board[10][20])
+void new_food(char board[10][20],vector<food>snake)
 {
    // srand(time(0));
-    food result;
+    
     
     while(true)
     {
-    result.x = rand() % 8+1;
-    result.y= rand() % 18+1;
-    if(board[result.x][result.y]==' ')
+    int x = rand() % 8+1;
+    int y= rand() % 18+1;
+    if(is_valid_food_position(board,snake,x,y))
     {
-        board[result.x][result.y]='*';
+        board[x][y]='*';
         break;
     }
     
     }
     
 }
-void check_food(char board[10][20],vector<food>&v,food t)
+void check_food(char board[10][20],vector<food>&v,food t,int&score)
 {
     if(board[v[0].x][v[0].y]=='*')
     {
         v.push_back(t);
-        new_food(board);
+        new_food(board,v);
+        score++;
     }
     
     
@@ -92,26 +107,45 @@ int main()
     int x=1,y=1;
     char direction='d';
     char m;
-    char d='d';
+    char d;
     food old_tail;
-    //vector<char> snake ={'O'};
+    
     vector<food> snake;
     snake.push_back({1,1});
-    new_food(board);
+    new_food(board,snake);
+    while(true)
+    {
+        board[1][1]='O';
     print_board(board);
+
+    cin>>d;
+    if(d!='d' && d!='s')
+    {
+        cout<<"click d to move to the right or s to move down";
+        this_thread::sleep_for(chrono::seconds(2));
+        system("cls");
+    }
+    else
+    {
+        board[1][1]=' ';
+        break;
+    }
+    ;
+    }
+   
     while (true)
     {
-     cout<<score;   
+    // cout<<score;   
        if(_kbhit())
        {
         m=getch();
-        if(m=='w')
+        if(m=='w' && d!='s')
          d='w';
-         if(m=='s')
+         if(m=='s' && d!='w')
          d='s';
-         if(m=='d')
+         if(m=='d' && d!='a')
          d='d';
-         if(m=='a')
+         if(m=='a' && d!='d')
          d='a';
        }
        // where is the tail
@@ -132,27 +166,31 @@ int main()
         
       if(!check_lose(board,snake[0].x,snake[0].y,snake))
            {
-                cout<<"Looooooser";
+                cout<<"YOUR SCORE IS "<<score;
                 goto end;
              }           
 
-           check_food(board,snake,old_tail);
-            //board[x][y]=snake[0];
-            for(auto x: snake)
+           check_food(board,snake,old_tail,score);
+            // draw
+            
+            for(int i=0;i<snake.size();i++)
             {
-                board[x.x][x.y]='o';
+                if(i==0)
+                board[snake[i].x][snake[i].y]='O';
+                else
+                board[snake[i].x][snake[i].y]='o';
             }
             
             
             system("cls");
             print_board(board);
-             
+             // clear
             for(auto x: snake)
             {
                 board[x.x][x.y]=' ';
             }
            
-            this_thread::sleep_for(chrono::milliseconds(500));
+            this_thread::sleep_for(chrono::milliseconds(350));
            
            
         }
