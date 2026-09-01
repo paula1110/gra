@@ -98,8 +98,8 @@ int main()
     // select
 
     char m;
-    cout<<"to move use 'w' , 's' , 'a' , 'd' "<<endl;
-    cout<<"to select the square click 'n'";
+    cout<<"aby się poruszać użyj 'w', 's', 'a', 'd' "<<endl;
+    cout<<"aby wybrać kwadrat kliknij 'n'";
     this_thread::sleep_for(chrono::seconds(5));
     system("cls");
     printboard(tablica);
@@ -124,7 +124,7 @@ int main()
               break;
             else
             {
-                cout<<"you canot go there";
+                cout<<"nie możesz tam iść";
                  tablica[x][y]=original[x][y];
                 x = place.first;
                 y = place.second;
@@ -191,7 +191,7 @@ int main()
          if(n>=4)
         if(ifwin(tablica,k))
         {
-            cout<<k<<" IS THE WINNER";
+            cout<<k<<" JEST ZWYCIĘZCĄ";
             this_thread::sleep_for(chrono::seconds(2));
             return 0;
         }
@@ -221,7 +221,7 @@ int main()
 
     }
 
-cout<<"it is a draw";
+cout<<"to jest remis";
         this_thread::sleep_for(chrono::seconds(2));
 
 

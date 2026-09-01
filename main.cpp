@@ -9,10 +9,10 @@ int main()
     {
         system("cls");
         int c;
-    cout<<"press 1 to open labirynt"<<endl;
-    cout<<"press 2 to open X i O"<<endl;
-    cout<<"press 3 to open wąż"<<endl;
-    cout<<"to exit 4"<<endl;
+    cout<<"naciśnij 1, aby otworzyć labirynt"<<endl;
+    cout<<"naciśnij 2, aby otworzyć X i O"<<endl;
+    cout<<"naciśnij 3, aby otworzyć wąż"<<endl;
+    cout<<"naciśnij 4, aby wyjść"<<endl;
     cin>>c;
     if(c==1)
     {

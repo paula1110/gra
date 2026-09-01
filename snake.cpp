@@ -121,7 +121,7 @@ int main()
     cin>>d;
     if(d!='d' && d!='s')
     {
-        cout<<"click d to move to the right or s to move down";
+        cout<<"kliknij d, aby przesunąć się w prawo lub s, aby przesunąć się w dół";
         this_thread::sleep_for(chrono::seconds(2));
         system("cls");
     }
@@ -166,7 +166,7 @@ int main()
         
       if(!check_lose(board,snake[0].x,snake[0].y,snake))
            {
-                cout<<"YOUR SCORE IS "<<score;
+                cout<<"TWÓJ WYNIK TO "<<score;
                 goto end;
              }           
 
