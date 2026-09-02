@@ -86,7 +86,7 @@ int main()
     string s;
     int x=0,y=0,n=0;
     
-    cout<<"kto chce zacząć X lub O";
+    cout<<"\033[36m kto chce zacząć X lub O\033[0m";
     cin>>s;
     if(s.length()>1)
        return 1;
@@ -98,8 +98,8 @@ int main()
     // select
 
     char m;
-    cout<<"aby się poruszać użyj 'w', 's', 'a', 'd' "<<endl;
-    cout<<"aby wybrać kwadrat kliknij 'n'";
+    cout<<"\033[34maby się poruszać użyj 'w', 's', 'a', 'd' \033[0m"<<endl;
+    cout<<"\033[34maby wybrać kwadrat kliknij 'n'\033[0m";
     this_thread::sleep_for(chrono::seconds(5));
     system("cls");
     printboard(tablica);
@@ -124,7 +124,7 @@ int main()
               break;
             else
             {
-                cout<<"nie możesz tam iść";
+                cout<<"\033[31mnie możesz tam iść\033[0m";
                  tablica[x][y]=original[x][y];
                 x = place.first;
                 y = place.second;
@@ -191,7 +191,7 @@ int main()
          if(n>=4)
         if(ifwin(tablica,k))
         {
-            cout<<k<<" JEST ZWYCIĘZCĄ";
+            cout<<"\033[32m"<<k<<" JEST ZWYCIĘZCĄ\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             return 0;
         }
@@ -221,7 +221,7 @@ int main()
 
     }
 
-cout<<"to jest remis";
+cout<<"\033[33mto jest remis\033[0m";
         this_thread::sleep_for(chrono::seconds(2));
 
 

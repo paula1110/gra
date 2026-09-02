@@ -121,7 +121,7 @@ int main()
     cin>>d;
     if(d!='d' && d!='s')
     {
-        cout<<"kliknij d, aby przesunąć się w prawo lub s, aby przesunąć się w dół";
+        cout<<"\033[33mkliknij d, aby przesunąć się w prawo lub s, aby przesunąć się w dół\033[0m";
         this_thread::sleep_for(chrono::seconds(2));
         system("cls");
     }
@@ -166,7 +166,7 @@ int main()
         
       if(!check_lose(board,snake[0].x,snake[0].y,snake))
            {
-                cout<<"TWÓJ WYNIK TO "<<score;
+                cout<<"\033[33mTWÓJ WYNIK TO "<<score<<"\033[0m";
                 goto end;
              }           
 

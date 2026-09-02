@@ -95,7 +95,7 @@ int main(){
             else
             {
                 pr++;
-                cout<<" nie możesz tam iść";
+                cout<<"\033[31m nie możesz tam iść\033[0m";
                 this_thread::sleep_for(chrono::seconds(2));
                 system("cls");
              printmaz(actual);
@@ -111,14 +111,14 @@ int main(){
             if(l==2)
             {
                 actual=maz2;
-                cout<<"wygrałeś, przechodzisz na następny poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na następny poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                
             else if(l==3)
             {
                 actual=maz3;
-                cout<<"wygrałeś, przechodzisz na ostatni poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na ostatni poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                 
@@ -141,7 +141,7 @@ system("cls");
             }
             else
             {pr--;
-                cout<<" nie możesz tam iść";
+                cout<<"\033[31m nie możesz tam iść\033[0m";
                 this_thread::sleep_for(chrono::seconds(2));
                 system("cls");
             printmaz(actual);
@@ -157,14 +157,14 @@ system("cls");
             if(l==2)
             {
                 actual=maz2;
-                cout<<"wygrałeś, przechodzisz na następny poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na następny poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                
             else if(l==3)
             {
                 actual=maz3;
-                cout<<"wygrałeś, przechodzisz na ostatni poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na ostatni poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                 
@@ -187,7 +187,7 @@ system("cls");
             else
             {
                 pc++;
-                cout<<" nie możesz tam iść";
+                cout<<"\033[31m nie możesz tam iść\033[0m";
                 this_thread::sleep_for(chrono::seconds(2));
                 system("cls");
             printmaz(actual);
@@ -203,14 +203,14 @@ system("cls");
             if(l==2)
             {
                 actual=maz2;
-                cout<<"wygrałeś, przechodzisz na następny poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na następny poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                
             else if(l==3)
             {
                 actual=maz3;
-                cout<<"wygrałeś, przechodzisz na ostatni poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na ostatni poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                 
@@ -232,7 +232,7 @@ system("cls");
             }
             else
             {pc--;
-                cout<<" nie możesz tam iść";
+                cout<<"\033[31m nie możesz tam iść\033[0m";
                 this_thread::sleep_for(chrono::seconds(2));
                 system("cls");
             printmaz(actual);
@@ -248,14 +248,14 @@ system("cls");
             if(l==2)
             {
                 actual=maz2;
-                cout<<"wygrałeś, przechodzisz na następny poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na następny poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                
             else if(l==3)
             {
                 actual=maz3;
-                cout<<"wygrałeś, przechodzisz na ostatni poziom";
+                cout<<"\033[34mwygrałeś, przechodzisz na ostatni poziom\033[0m";
             this_thread::sleep_for(chrono::seconds(2));
             }
                 
@@ -270,6 +270,6 @@ system("cls");
 
     }}
     system("cls");
-    cout<<"gratulacje, wygrales";
+    cout<<"\033[32mgratulacje, wygrales\033[0m";
     this_thread::sleep_for(chrono::seconds(2));
 }
