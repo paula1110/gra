@@ -4,10 +4,13 @@ using namespace std;
 int main()
 { SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
+    
 
     while(true)
     {
         system("cls");
+         cout<<"imię: Paula Salama"<<endl;
+        cout<<"klasa: 2E"<<endl;
         int c;
     cout<<"\033[31mnaciśnij 1, aby otworzyć labirynt\033[0m"<<endl;
     cout<<"\033[34mnaciśnij 2, aby otworzyć X i O\033[0m"<<endl;
@@ -32,6 +35,7 @@ int main()
      }
     else if(c==4)
     break;
+   
     }
     
 
